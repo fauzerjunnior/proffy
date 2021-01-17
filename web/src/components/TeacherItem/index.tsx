@@ -3,38 +3,55 @@ import React from 'react';
 import './styles.css';
 
 import whatsappIcon from '../../assets/images/icons/whatsapp.svg';
+import api from '../../services/api';
 
-const TeacherItem: React.FC = () => {
+export interface Teacher {
+  id: number;
+  avatar: string;
+  bio: string;
+  cost: number;
+  name: string;
+  subject: string;
+  whatsapp: string;
+}
+
+interface TeacherItemProps {
+  teacher: Teacher;
+}
+
+const TeacherItem: React.FC<TeacherItemProps> = ({ teacher }) => {
+  function createNewConnection() {
+    api.post('connections', {
+      user_id: teacher.id,
+    });
+  }
   return (
     <article className="teacher-item">
       <header>
-        <img
-          src="https://avatars2.githubusercontent.com/u/44206464?s=460&u=09f9b92c2ed84b2a1d248d687ef0d6c371e1dfa4&v=4"
-          alt="Fauzer Junior"
-        />
+        <img src={teacher.avatar} alt={teacher.name} />
         <div>
-          <strong>Fauzer Junior</strong>
-          <span>Química</span>
+          <strong>{teacher.name}</strong>
+          <span>{teacher.subject}</span>
         </div>
       </header>
-      <p>
-        Lorem Ipsum is simply dummy text of the printing and typesetting
-        industry.
-        <br />
-        <br />
-        Lorem Ipsum has been the industry&apos;s standard dummy text ever since
-        the 1500s
-      </p>
+      <p>{teacher.bio}</p>
       <footer>
         <p>
           Preço/hora
-          <strong>R$ 80,00</strong>
+          <strong>
+            R$
+            {teacher.cost}
+          </strong>
         </p>
 
-        <button type="button">
+        <a
+          title="Entrar em contato no WhatsApp"
+          target="_blank"
+          onClick={createNewConnection}
+          href={`https://wa.me/${teacher.whatsapp}`}>
           <img src={whatsappIcon} alt="WhatsApp" />
           Entrar em contato
-        </button>
+        </a>
       </footer>
     </article>
   );
