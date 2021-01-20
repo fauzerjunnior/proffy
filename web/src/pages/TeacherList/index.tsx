@@ -41,8 +41,12 @@ const TeacherList: React.FC = () => {
               { value: 'Artes', label: 'Artes' },
               { value: 'Biologia', label: 'Biologia' },
               { value: 'Ciências', label: 'Ciências' },
+              { value: 'Educação Física', label: 'Educação Física' },
+              { value: 'Filosofia', label: 'Filosofia' },
+              { value: 'Geografia', label: 'Geografia' },
               { value: 'Matemática', label: 'Matemática' },
               { value: 'Português', label: 'Português' },
+              { value: 'Sociologia', label: 'Sociologia' },
             ]}
           />
           <Select
