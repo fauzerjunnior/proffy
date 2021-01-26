@@ -39,6 +39,8 @@
     "@typescript-eslint/no-use-before-define": ["error"],
     "react/style-prop-object": "off",
     "camelcase": "off",
-    "max-len": "off"
+    "max-len": "off",
+    "import/no-extraneous-dependencies": "off",
+    "import/prefer-default-export": "off"
   }
 }

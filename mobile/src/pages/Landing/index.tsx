@@ -27,6 +27,10 @@ const Landing: React.FC = () => {
     navigation.navigate('GiveClasses');
   }
 
+  function handleNavigateToStudy() {
+    navigation.navigate('Study');
+  }
+
   return (
     <>
       <Container>
@@ -37,7 +41,7 @@ const Landing: React.FC = () => {
         </Text>
 
         <ContainerButton>
-          <ButtonPrimary>
+          <ButtonPrimary onPress={handleNavigateToStudy}>
             <IconButton source={studyIcon} />
             <TextButton>Estudar</TextButton>
           </ButtonPrimary>
