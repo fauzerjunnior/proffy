@@ -3,7 +3,7 @@ import { RectButton } from 'react-native-gesture-handler';
 
 export const Container = styled.View`
   flex: 1;
-  background-color: #8257E5;
+  background-color: #8257e5;
   justify-content: center;
   padding: 40px;
 `;
@@ -17,7 +17,7 @@ export const Banner = styled.Image`
 `;
 
 export const Text = styled.Text`
-  color: #FFF;
+  color: #fff;
   font-size: 20px;
   line-height: 30px;
   margin-top: 80px;
@@ -37,7 +37,7 @@ export const ContainerButton = styled.View`
 export const ButtonPrimary = styled(RectButton)`
   height: 150px;
   width: 48%;
-  background-color: #9871F5;
+  background-color: #9871f5;
   border-radius: 8px;
   padding: 24px;
   justify-content: space-between;
@@ -46,29 +46,27 @@ export const ButtonPrimary = styled(RectButton)`
 export const ButtonSecondary = styled(RectButton)`
   height: 150px;
   width: 48%;
-  background-color: #04D361;
+  background-color: #04d361;
   border-radius: 8px;
   padding: 24px;
   justify-content: space-between;
 `;
 
-export const IconButton = styled.Image`
-`;
+export const IconButton = styled.Image``;
 
 export const TextButton = styled.Text`
   font-family: Archivo_700Bold;
-  color: #FFF;
+  color: #fff;
   font-size: 20px;
 `;
 
 export const ConnectionText = styled.Text`
   font-family: Poppins_400Regular;
-  color: #D4C2FF;
+  color: #d4c2ff;
   font-size: 13px;
   line-height: 20px;
   max-width: 160px;
   margin-top: 40px;
 `;
 
-export const Icon = styled.Image`
-`;
+export const Icon = styled.Image``;

@@ -2,8 +2,8 @@ import { RectButton } from 'react-native-gesture-handler';
 import styled from 'styled-components/native';
 
 export const Container = styled.View`
-  background-color: #FFF;
-  border: 1px #E6E6F0;
+  background-color: #fff;
+  border: 1px #e6e6f0;
   border-radius: 8px;
   margin-bottom: 16px; /* CUSTOM */
   overflow: hidden;
@@ -19,7 +19,7 @@ export const Avatar = styled.Image`
   width: 64px;
   height: 64px;
   border-radius: 32px;
-  background-color: #EEE;
+  background-color: #eee;
 `;
 
 export const ProfileInfo = styled.View`
@@ -28,15 +28,15 @@ export const ProfileInfo = styled.View`
 
 export const Name = styled.Text`
   font-family: Archivo_700Bold;
-  color: #32264D;
+  color: #32264d;
   font-size: 20px;
 `;
 
 export const Subject = styled.Text`
   font-family: Poppins_400Regular;
-  color: #6A6180;
+  color: #6a6180;
   font-size: 12px;
-  margin-top: 4px; 
+  margin-top: 4px;
 `;
 
 export const Bio = styled.Text`
@@ -44,24 +44,24 @@ export const Bio = styled.Text`
   font-family: Poppins_400Regular;
   font-size: 14px;
   line-height: 24px;
-  color: #6A6180;
+  color: #6a6180;
 `;
 
 export const Footer = styled.View`
-  background-color: #FAFAFC;
+  background-color: #fafafc;
   padding: 24px;
   align-items: center;
 `;
 
 export const Price = styled.Text`
   font-family: Poppins_400Regular;
-  color: #6A6180;
+  color: #6a6180;
   font-size: 14px;
 `;
 
 export const PriceValue = styled.Text`
   font-family: Archivo_700Bold;
-  color: #8257E5;
+  color: #8257e5;
   font-size: 16px;
 `;
 
@@ -75,7 +75,7 @@ interface FavoriteButtonProps {
 }
 
 export const FavoriteButton = styled(RectButton)<FavoriteButtonProps>`
-  background-color: ${((props) => (props.favorited ? '#E33D3D' : '#8257E5'))};
+  background-color: ${props => (props.favorited ? '#E33D3D' : '#8257E5')};
   width: 56px;
   height: 56px;
   border-radius: 8px;
@@ -87,7 +87,7 @@ export const FavoriteButton = styled(RectButton)<FavoriteButtonProps>`
 export const IconButton = styled.Image``;
 
 export const ContactButton = styled(RectButton)`
-  background-color: #04D361;
+  background-color: #04d361;
   flex: 1;
   flex-direction: row;
   height: 56px;
@@ -98,7 +98,7 @@ export const ContactButton = styled(RectButton)`
 `;
 
 export const ContactButtonText = styled.Text`
-  color: #FFF;
+  color: #fff;
   font-family: Archivo_700Bold;
   font-size: 16px;
   margin-left: 16px;

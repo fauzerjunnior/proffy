@@ -1,48 +1,120 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { Linking } from 'react-native';
 
+import AsyncStorage from '@react-native-community/async-storage';
 import {
-  Container, Profile, Avatar, ProfileInfo, Name, Subject, Bio, Footer, Price, PriceValue, ButtonsContainer, FavoriteButton, IconButton, ContactButton, ContactButtonText,
+  Container,
+  Profile,
+  Avatar,
+  ProfileInfo,
+  Name,
+  Subject,
+  Bio,
+  Footer,
+  Price,
+  PriceValue,
+  ButtonsContainer,
+  FavoriteButton,
+  IconButton,
+  ContactButton,
+  ContactButtonText,
 } from './styles';
 
 import heartOutlineIcon from '../../assets/images/icons/heart-outline.png';
 import unfavoriteIcon from '../../assets/images/icons/unfavorite.png';
 import whatsappIcon from '../../assets/images/icons/whatsapp.png';
+import api from '../../services/api';
 
-const TeacherItem: React.FC = () => (
-  <Container>
-    <Profile>
-      <Avatar source={{ uri: 'https://avatars.githubusercontent.com/u/44206464?v=4' }} />
 
-      <ProfileInfo>
-        <Name>Fauzer Junior</Name>
-        <Subject>Química</Subject>
-      </ProfileInfo>
-    </Profile>
+export interface Teacher {
+  id: number;
+  avatar: string;
+  bio: string;
+  cost: number;
+  name: string;
+  subject: string;
+  whatsapp: string;
+}
 
-    <Bio>
-      My name is Fauzer Junior, today I live in Campinas / SP 🇧🇷.
-      {'\n'}{'\n'}
-      I have been working with Web Development since 2016 and currently work as Frontend Developer. I am passionate about development and have been working on my skills with NodeJS, ReactJS and React Native.
-    </Bio>
+interface TeacherItemProps {
+  teacher: Teacher;
+  favorited: boolean;
+}
 
-    <Footer>
-      <Price>
-        Preço/hora {'  '}
-        <PriceValue>R$ 20,00</PriceValue>
-      </Price>
+const TeacherItem: React.FC<TeacherItemProps> = ({ teacher, favorited }) => {
+  const [isFavorited, setIsFavorited] = useState(favorited);
+  
+  const handleLinkToWhatsapp = () => {
+   api.post('connections', {
+     user_id: teacher.id,
+   });
 
-      <ButtonsContainer>
-        <FavoriteButton favorited>
-          {/* <IconButton source={heartOutlineIcon} /> */}
-          <IconButton source={unfavoriteIcon} />
-        </FavoriteButton>
-        <ContactButton>
-          <IconButton source={whatsappIcon} />
-          <ContactButtonText>Entrar em contato</ContactButtonText>
-        </ContactButton>
-      </ButtonsContainer>
-    </Footer>
-  </Container>
-);
+    Linking.openURL(`whastapp://send?phone=${teacher.whatsapp}`);
+  }
+
+  const handleToggleFavorite = async () => {
+    const favorites = await AsyncStorage.getItem('favorites');
+    
+    let favoritesArray = [];
+
+    if (favorites) {
+      favoritesArray = JSON.parse(favorites);
+    }
+
+    if (isFavorited) {
+      const favoriteIndex = favoritesArray.findIndex((teacherItem: Teacher) => {
+        return teacherItem.id === teacher.id;
+      });
+
+      favoritesArray.splice(favoriteIndex, 1);
+
+      setIsFavorited(false);
+    } else {
+      favoritesArray.push(teacher);
+
+      setIsFavorited(true);
+    }
+
+    await AsyncStorage.setItem('favorites', JSON.stringify(favoritesArray));
+  }
+
+  return (
+    <Container>
+      <Profile>
+        <Avatar
+          source={{ uri: teacher.avatar }}
+        />
+
+        <ProfileInfo>
+          <Name>{teacher.name}</Name>
+          <Subject>{teacher.subject}</Subject>
+        </ProfileInfo>
+      </Profile>
+
+      <Bio>
+        {teacher.bio}
+      </Bio>
+
+      <Footer>
+        <Price>
+          Preço/hora {'  '}
+          <PriceValue>R$ {teacher.cost}</PriceValue>
+        </Price>
+
+        <ButtonsContainer>
+          <FavoriteButton favorited={!!isFavorited} onPress={handleToggleFavorite}>
+            { isFavorited 
+              ? <IconButton source={unfavoriteIcon} /> 
+              : <IconButton source={heartOutlineIcon} /> }
+          </FavoriteButton>
+          <ContactButton onPress={handleLinkToWhatsapp}>
+            <IconButton source={whatsappIcon} />
+            <ContactButtonText>Entrar em contato</ContactButtonText>
+          </ContactButton>
+        </ButtonsContainer>
+      </Footer>
+    </Container>
+  );
+}
 
 export default TeacherItem;

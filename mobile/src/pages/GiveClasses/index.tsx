@@ -20,18 +20,19 @@ const GiveClasses: React.FC = () => {
   }
 
   return (
-  <Container>
-    <Background source={giveClassesBgImage} resizeMode="contain">
-      <Title>Quer ser um Proffy?</Title>
-      <Description>Para começar, você precisa se cadastrar como professor na nossa plataforma web.</Description>
-    </Background>
+    <Container>
+      <Background source={giveClassesBgImage} resizeMode="contain">
+        <Title>Quer ser um Proffy?</Title>
+        <Description>
+          Para começar, você precisa se cadastrar como professor na nossa
+          plataforma web.
+        </Description>
+      </Background>
 
-    <Button onPress={handleNavigateBack}>
-      <TextButton>
-        Tudo bem
-      </TextButton>
-    </Button>
-  </Container>
+      <Button onPress={handleNavigateBack}>
+        <TextButton>Tudo bem</TextButton>
+      </Button>
+    </Container>
   );
 };
 

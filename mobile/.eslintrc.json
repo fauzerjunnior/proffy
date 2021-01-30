@@ -5,11 +5,11 @@
     "jest": true
   },
   "extends": [
+    "plugin:react/recommended",
     "airbnb",
     "plugin:@typescript-eslint/recommended",
     "prettier/@typescript-eslint",
-    "prettier/standard",
-    "prettier/react"
+    "plugin:prettier/recommended"
   ],
   "globals": {
     "Atomics": "readonly",
@@ -25,22 +25,26 @@
   },
   "plugins": [
     "react",
+    "react-hooks",
     "@typescript-eslint",
     "prettier"
   ],
   "rules": {
     "prettier/prettier": "off",
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn",
+    "react/jsx-filename-extension": "off",
+    "react/jsx-one-expression-per-line": "off",
+    "import/prefer-default-export": "off",
     "space-before-function-paren": "off",
     "react/prop-types": "off",
-    "import/extensions": "off",
     "import/no-unresolved": "off",
-    "react/jsx-filename-extension": [0],
     "no-use-before-define": "off",
     "@typescript-eslint/no-use-before-define": ["error"],
     "react/style-prop-object": "off",
     "camelcase": "off",
     "max-len": "off",
     "import/no-extraneous-dependencies": "off",
-    "import/prefer-default-export": "off"
+    "import/extensions": "off"
   }
 }

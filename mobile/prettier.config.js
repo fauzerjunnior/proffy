@@ -1,6 +1,5 @@
-module.exports = { 
-  semi: true,
+module.exports = {
   singleQuote: true,
+  tralingComma: 'all',
   arrowParens: 'avoid',
-  endOfLine: 'auto'
-}
+};

@@ -3,14 +3,14 @@ import styled from 'styled-components/native';
 
 export const Container = styled.View`
   flex: 1;
-  background-color: #8257E5;
+  background-color: #8257e5;
   justify-content: center;
   padding: 40px;
 `;
 
 export const Title = styled.Text`
   font-family: Archivo_700Bold;
-  color: #FFF;
+  color: #fff;
   font-size: 32px;
   line-height: 37px;
   max-width: 180px;
@@ -23,7 +23,7 @@ export const Background = styled.ImageBackground`
 
 export const Description = styled.Text`
   margin-top: 24px;
-  color: #D4C2FF;
+  color: #d4c2ff;
   font-size: 16px;
   line-height: 26px;
   font-family: Poppins_400Regular;
@@ -32,7 +32,7 @@ export const Description = styled.Text`
 
 export const Button = styled(RectButton)`
   margin: 40px 0px;
-  background-color: #04D361;
+  background-color: #04d361;
   height: 58px;
   align-items: center;
   justify-content: center;
@@ -40,7 +40,7 @@ export const Button = styled(RectButton)`
 `;
 
 export const TextButton = styled.Text`
-  color: #FFF;
+  color: #fff;
   font-size: 16px;
   font-family: Archivo_700Bold;
 `;

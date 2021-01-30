@@ -2,7 +2,7 @@ import styled from 'styled-components/native';
 
 export const Container = styled.View`
   padding: 60px 40px;
-  background-color: #8257E5;
+  background-color: #8257e5;
 `;
 
 export const TopBar = styled.View`
@@ -13,7 +13,7 @@ export const TopBar = styled.View`
 
 export const Title = styled.Text`
   font-family: Archivo_700Bold;
-  color: #FFF;
+  color: #fff;
   font-size: 24px;
   line-height: 32px;
   max-width: 160px;
